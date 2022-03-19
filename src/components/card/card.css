@@ -1,0 +1,70 @@
+.cardContainer {
+    width: 80%;
+    max-width: 280px;
+    min-width: 250px;
+    height: 400px;
+    background: #fff;
+    border-radius: 40px;
+    box-shadow: 10px 10px 20px 0px #0006;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all .2s;
+}
+
+.cardContainer:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.recipeImg {
+    width: 100%;
+    height: 60%;
+    background: url(http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.recipeImg::before {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 80px;
+    background: #fff;
+    bottom: -50px;
+    left: -10px;
+    transform: rotate(-10deg);
+}
+
+.recipeName {
+    color: #000;
+    font-size: 24px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.seeRecipe {
+    width: 60%;
+    text-align: center;
+    margin: auto auto 25px auto;
+    background: #f22;
+    color: #fff;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s;
+}
+
+.seeRecipe:hover{
+    filter: brightness(1.3);
+}
