@@ -1,5 +1,6 @@
 import {React, useState} from "react";
 import './footer.css';
+import axios from "axios";
 
 function Footer(){
 
@@ -9,28 +10,59 @@ function Footer(){
     const [type, setType] = useState("sweets");
     const [msg, setMsg] = useState("");
 
+    const [disabledClass, setDisabledClass] = useState('disabled');
+
+    // Verifica se todos os campos estão preenchidos
+    function checkFields(){
+        if(name && email && date && type && msg){
+            setDisabledClass("");
+            return true;
+        };
+        setDisabledClass('disabled');
+        return false;
+    }
+
     function handleNameChange(e){
         setName(e.target.value);
+        checkFields();
     }
 
     function handleEmailChange(e){
         setEmail(e.target.value);
+        checkFields();
     }
 
     function handleDateChange(e){
         setDate(e.target.value);
+        checkFields();
     }
 
     function handleTypeChange(e){
         setType(e.target.value);
+        checkFields();
     }
 
     function handleMsgChange(e){
         setMsg(e.target.value);
+        checkFields();
     }
     
     function handleSubmit(e){
-        
+        if(checkFields()){
+            axios.post('https://recipes-api-appmoove.herokuapp.com/contacts', {
+                name: name,
+                email: email,
+                birthday: date,
+                type_food: type,
+                message: msg
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 
     return (
@@ -67,10 +99,7 @@ function Footer(){
                         <input type="text" className="inputField large" placeholder="Insira sua mensagem" onChange={handleMsgChange}/>
                     </div>
 
-                    <div className="enviar" onClick={handleSubmit}>Enviar</div>
-                    
-                    
-                    
+                    <div className={"enviar " + disabledClass}  onClick={handleSubmit}>Enviar</div>
                     
                 </div>
             </div>
