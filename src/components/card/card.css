@@ -18,7 +18,7 @@
     transform: scale(1.02);
 }
 
-.recipeImg {
+.recipeImgContainer {
     width: 100%;
     height: 60%;
     background-position: center;
@@ -29,7 +29,7 @@
     display: block;
 }
 
-.recipeImg::before {
+.recipeImgContainer::before {
     content: "";
     position: absolute;
     width: 110%;
@@ -38,6 +38,14 @@
     bottom: -50px;
     left: -10px;
     transform: rotate(-10deg);
+}
+
+.recipeImg{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .recipeName {
