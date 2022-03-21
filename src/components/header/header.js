@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './header.css';
 import '../../fontawesome/css/all.css'; // Icones
 import '../../fontawesome/alt/css/all.css';
@@ -12,7 +12,7 @@ function Header({setFilterText}){
     function handleSearch(){
         window.scrollTo({
             top: window.innerHeight,
-            behavior: 'smooth' // for smoothly scrolling
+            behavior: 'smooth'
        });
     }
 

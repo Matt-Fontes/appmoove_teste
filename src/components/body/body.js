@@ -19,8 +19,6 @@ function Body({filterText}){
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
         }}).then((repos) => {
-            console.log(repos.data);
-
             setRecipes(repos.data);
             setFilteredRecipes(repos.data);
         });
@@ -32,13 +30,13 @@ function Body({filterText}){
 
         // Filtro de receitas
         let arr = [];
-        recipes.map(el => {
+        recipes.forEach(el => {
             if(el.name.toLowerCase().includes(filterText.toLowerCase()))
                 arr.push(el);
         });
         setFilteredRecipes(arr);
 
-    }, [filterText]);
+    }, [filterText, recipes]);
 
     return (
         <div className="bodyContainer">
