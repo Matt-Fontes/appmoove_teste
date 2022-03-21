@@ -5,14 +5,15 @@ import '../../fontawesome/alt/css/all.css';
 
 function Header({setFilterText}){
 
-    const [fieldText, setFieldText] = useState("");
-
     function handleTextChange(e){
-        setFieldText(e.target.value);
+        setFilterText(e.target.value);
     }
 
     function handleSearch(){
-        setFilterText(fieldText);
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth' // for smoothly scrolling
+       });
     }
 
     return(

@@ -37,7 +37,7 @@ function Body({filterText}){
                 arr.push(el);
         });
         setFilteredRecipes(arr);
-        
+
     }, [filterText]);
 
     return (
@@ -46,7 +46,7 @@ function Body({filterText}){
             <div className="cardsContainer">
                 {
                     filteredRecipes.map((el, index) => (
-                        <Card name={el.name} image={el.imageURL} key={index}/>
+                        <Card name={el.name} image={el.imageURL} data={el} key={index}/>
                     ))
                 }
             </div>

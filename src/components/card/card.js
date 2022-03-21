@@ -1,17 +1,25 @@
 import {React, useEffect, useState} from "react";
 import './card.css';
 import placeHolder from './../../images/notFound.png';
+import { Link } from "react-router-dom";
 
-function Card(props){    
+function Card({name, image, data}){    
+
+    function handleCardClick(){
+        console.log(data);
+        window.scrollTo({
+            top: 0
+       });
+    }
 
     return(
-        <div className="cardContainer">
+        <Link to='/receita' state={{data: data}} className="cardContainer"onClick={handleCardClick}>
             <div className="recipeImgContainer" style={{backgroundImage: 'url(' + placeHolder + ')' }}>
-                <div className="recipeImg" style={{backgroundImage: 'url(' + props.image + ')' }}></div>
+                <div className="recipeImg" style={{backgroundImage: 'url(' + image + ')' }}></div>
             </div>
-            <div className="recipeName">{props.name}</div>
+            <div className="recipeName">{name}</div>
             <div className="seeRecipe">Ver Receita</div>
-        </div>
+        </Link>
     );
 }
 
